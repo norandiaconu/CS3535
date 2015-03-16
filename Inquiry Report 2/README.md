@@ -18,10 +18,7 @@ The search can be conducted by adding terms concatenated by + signs after the pr
 python music_info.py pink+floyd+money
 ```
 This will print the artist location, danceability, tempo, loudness, and duration.
-```python
-python beat_swap.py <input_filename> <output_filename>
-python beat_swap.py lateralus.mp3 lateralus_swap.mp3
-```
-This allows the program to work for any song on your system.
+
+Other fields can be easily added to provide more specific functionality to the program.
 
 [Pyechonest]: https://github.com/echonest/pyechonest
