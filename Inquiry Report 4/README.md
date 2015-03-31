@@ -33,6 +33,11 @@ if '-' in search_words:
         new_combined = lis[0] + new_song
         results = song.search(combined=new_combined)
 ```
+By default, the program searches for the 5 most similar artist to a search query. If any fewer are found, an IndexError is thrown. I resolved this issue by catching the exception and having a proper message printed.
+```python
+except IndexError:
+        print 'Search complete!'
+```
 
 [Pyechonest]: https://github.com/echonest/pyechonest
 [Check for '-' between artist and song title]: http://stackoverflow.com/questions/4877844/how-would-i-check-a-string-for-a-certain-letter-in-python
