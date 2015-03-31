@@ -35,6 +35,6 @@ if '-' in search_words:
 ```
 
 [Pyechonest]: https://github.com/echonest/pyechonest
-[Check for - between artist and song title]: http://stackoverflow.com/questions/4877844/how-would-i-check-a-string-for-a-certain-letter-in-python
+[Check for '-' between artist and song title]: http://stackoverflow.com/questions/4877844/how-would-i-check-a-string-for-a-certain-letter-in-python
 [Split string at '-']: http://www.tutorialspoint.com/python/string_split.htm
 [Replace + for ' ' in search]: http://stackoverflow.com/questions/3136689/find-and-replace-string-values-in-python-list
