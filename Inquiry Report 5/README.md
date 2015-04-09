@@ -14,32 +14,40 @@ Find a better way to search for music information.
 2. [Check for '-' between artist and song title]
 3. [Split string at '-']
 4. [Replace + for ' ' in search]
+5. [More API method calls]
 
 ###Abstract
-The search can be further improved by allowing specific artist and song title search.
+The search can be further improved by allowing a variety of ways to search.
 ```python
 python music_info.py pink floyd - money
+python music_info.py pink floyd money
+python music_info.py pink floyd
+python music_info.py money
 ```
 This now prints a list of possible artists and statistics for the most similar song to each possible artist. This includes the artist location, danceability, tempo, loudness, and duration.
 
-The program supports both artist searches and artist/song title searches by checking for a '-' between the two using methods provided by Python. This includes the split and replace to allow for easier. This is done by checking for the symbol in an if statement:
+The song title now includes spaces when being searched by modifying this line.
 ```python
-if '-' in search_words:
-        lis = search_words.split('-')
-        a_results = artist.search(name=lis[0])
-        replaced = [l.replace('+', '') for l in lis[1]]
-        new_song = ''
-        new_song = ''.join(replaced)
-        new_combined = lis[0] + new_song
-        results = song.search(combined=new_combined)
+replaced = [l.replace('+', ' ') for l in lis[1]]
 ```
-By default, the program searches for the 5 most similar artist to a search query. If any fewer are found, an IndexError is thrown. I resolved this issue by catching the exception and having a proper message printed.
+The extra result printed at the bottom of each search is unnecessary and removed with another try catch to see whether the next loop is an IndexError or not.
 ```python
+try:
+       search_item = results[x]
+       a_search_item = a_results[x]
 except IndexError:
-        print 'Search complete!'
+       print 'Search complete!'
+       break
+```
+
+The iterations for each search are 0-based, but the result number has been changed on the output to better show the user what iteration the program is on by printing the result+1.
+```python
+print 'Result', x+1
 ```
 
 [Pyechonest]: https://github.com/echonest/pyechonest
 [Check for '-' between artist and song title]: http://stackoverflow.com/questions/4877844/how-would-i-check-a-string-for-a-certain-letter-in-python
 [Split string at '-']: http://www.tutorialspoint.com/python/string_split.htm
 [Replace + for ' ' in search]: http://stackoverflow.com/questions/3136689/find-and-replace-string-values-in-python-list
+[More API method calls]:
+http://developer.echonest.com/docs/v4
