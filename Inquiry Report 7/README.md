@@ -30,7 +30,7 @@ panel.pack(side = 'bottom', fill = 'both', expand = 'yes')
 
 The instruction pane is created using Message.
 ```python
-text2 = Message(root, width = 200, text='Please enter a search in the text box ...
+text2 = Message(root, width = 200, text='Please enter a search in the text box ...’)
 text2.pack(side = LEFT)
 ```
 
@@ -40,10 +40,10 @@ text = Entry()
 text.pack()
 text.delete(0, END)
 text.insert(0, 'Search_Words')
-text.config(width = 100)#justify = LEFT)
+text.config(width = 100) 
 ```
 
-All the buttons are created and added to the frame using Button.
+All the buttons and labels are created and added to the frame using Button.
 ```python
 self.parent.title('Music Info')
 continueButton = Button(self, text='Search', command = self.quit)

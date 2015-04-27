@@ -18,11 +18,9 @@ Example (in GUI):
 """
 
 from pyechonest import song, artist
-#from Tkinter import Tk, Frame, BOTH, Button, Text, Entry
 from Tkinter import *
 from PIL import ImageTk, Image
 import os
-#import subprocess as sub
 
 global bio, blog, songType, hot
 bio = False
@@ -32,21 +30,20 @@ hot = False
 
 
 def main(search_words):
-    #p = sub.Popen('./music_info.py', stdout=sub.PIPE, stderr=sub.PIPE)
     root = Tk()
     img = ImageTk.PhotoImage(Image.open('nest.png'))
-    root.geometry('550x500')
+    root.geometry('550x350')
     panel = Label(root, image = img)
     panel.pack(side = 'bottom', fill = 'both', expand = 'yes')
 
-    text2 = Message(root, width = 200, text='Please enter a search in the text box to the right in either of the following formats:\n\nartist name\nartist name - song title')
+    text2 = Message(root, width = 200, text='Please enter a search in the text box to the right in either of the following formats:\n\nartist name\nartist name - song title\n\nYou can also use the artist and song buttons to choose if you would like to see any of those options. All of the options are turned off by default.')
     text2.pack(side = LEFT)
 
     text = Entry()
     text.pack()
     text.delete(0, END)
     text.insert(0, 'Search_Words')
-    text.config(width = 100)#justify = LEFT)
+    text.config(width = 100)
 
     app = Music(root)
     root.mainloop()
@@ -60,7 +57,7 @@ def main(search_words):
         new_song = ''.join(replaced)
         new_combined = lis[0] + new_song
         results = song.search(combined=new_combined)
-        print 'song name: ', new_song
+        print 'Song Name: ', new_song
     else:
         results = song.search(title=search_words)
         print results[1]
@@ -76,13 +73,14 @@ def main(search_words):
             search_item = results[x]
             print 'Song: ', search_item
             a_search_item = a_results[x]
-            print 'artist name: ', a_search_item.name
-            print 'artist location:', search_item.artist_location
-            print 'danceability:', search_item.audio_summary['danceability']
-            print 'tempo:', search_item.audio_summary['tempo']
-            print 'loudness:', search_item.audio_summary['loudness']
-            print 'duration:', search_item.audio_summary['duration']
-            print 'hotttnesss:', a_search_item.hotttnesss
+            print 'Artist Name: ', a_search_item.name
+            print 'Artist Location:', search_item.artist_location
+            print 'Danceability:', search_item.audio_summary['danceability']
+            print 'Tempo:', search_item.audio_summary['tempo']
+            print 'Loudness:', search_item.audio_summary['loudness']
+            print 'Duration:', search_item.audio_summary['duration']
+            print 'Artist Hotness:', a_search_item.hotttnesss
+            print
             if x == 0:
                 a_search_item = a_results[x]
                 search_item = results[x]
@@ -152,7 +150,7 @@ class Music(Frame):
         self.parent.title('Music Info')
         continueButton = Button(self, text='Search', command = self.quit)
         continueButton.config(height = 3, width = 10)
-        continueButton.place(x = 240, y = 0)
+        continueButton.place(x = 240, y = 60)
         artistLabel = Label(self, text = 'Artist Options', bg = 'red')
         artistLabel.place(x = 0, y = 0)
         songLabel = Label(self, text = 'Song Options', bg = 'red')
