@@ -30,7 +30,7 @@ panel.pack(side = 'bottom', fill = 'both', expand = 'yes')
 
 The instruction pane is created using Message.
 ```python
-text2 = Message(root, width = 200, text='Please enter a search in the text box ...’)
+text2 = Message(root, width = 200, text = 'Please enter a search in the text box ...’)
 text2.pack(side = LEFT)
 ```
 
@@ -46,7 +46,7 @@ text.config(width = 100)
 All the buttons and labels are created and added to the frame using Button.
 ```python
 self.parent.title('Music Info')
-continueButton = Button(self, text='Search', command = self.quit)
+continueButton = Button(self, text = 'Search', command = self.quit)
 continueButton.config(height = 3, width = 10)
 continueButton.place(x = 240, y = 60)
 artistLabel = Label(self, text = 'Artist Options', bg = 'red')
@@ -65,7 +65,7 @@ songTypeButton.place(x = 120, y = 30)
 hotButton = Button(self, text = 'Hotness?', command = hotChoice)
 hotButton.config(height = 3, width = 10)
 hotButton.place(x = 120, y = 90)
-self.pack(fill=BOTH, expand=1)
+self.pack(fill = BOTH, expand = 1)
 ```
 
 [Pyechonest]: https://github.com/echonest/pyechonest

@@ -36,7 +36,7 @@ def main(search_words):
     panel = Label(root, image = img)
     panel.pack(side = 'bottom', fill = 'both', expand = 'yes')
 
-    text2 = Message(root, width = 200, text='Please enter a search in the text box to the right in either of the following formats:\n\nartist name\nartist name - song title\n\nYou can also use the artist and song buttons to choose if you would like to see any of those options. All of the options are turned off by default.')
+    text2 = Message(root, width = 200, text = 'Please enter a search in the text box to the right in either of the following formats:\n\nartist name\nartist name - song title\n\nYou can also use the artist and song buttons to choose if you would like to see any of those options. All of the options are turned off by default.')
     text2.pack(side = LEFT)
 
     text = Entry()
@@ -69,17 +69,17 @@ def main(search_words):
             if x == 1:
                 print '-----Other Possible Artists-----'
                 print
-            print 'Result', x+1
+            print 'Result ', x+1
             search_item = results[x]
             print 'Song: ', search_item
             a_search_item = a_results[x]
             print 'Artist Name: ', a_search_item.name
-            print 'Artist Location:', search_item.artist_location
-            print 'Danceability:', search_item.audio_summary['danceability']
-            print 'Tempo:', search_item.audio_summary['tempo']
-            print 'Loudness:', search_item.audio_summary['loudness']
-            print 'Duration:', search_item.audio_summary['duration']
-            print 'Artist Hotness:', a_search_item.hotttnesss
+            print 'Artist Location: ', search_item.artist_location
+            print 'Danceability: ', search_item.audio_summary['danceability']
+            print 'Tempo: ', search_item.audio_summary['tempo']
+            print 'Loudness: ', search_item.audio_summary['loudness']
+            print 'Duration: ', search_item.audio_summary['duration']
+            print 'Artist Hotness: ', a_search_item.hotttnesss
             print
             if x == 0:
                 a_search_item = a_results[x]
@@ -119,36 +119,32 @@ def main(search_words):
 def bioChoice():
     global bio
     bio = not bio
-    print 'Biography: '
-    print bio
+    print 'Biography: ', bio
 
 def blogChoice():
     global blog
     blog = not blog
-    print 'Blog:'
-    print blog
+    print 'Blog: ', blog
 
 def songTypeChoice():
     global songType
     songType = not songType
-    print 'Song Type:'
-    print songType
+    print 'Song Type: ', songType
 
 def hotChoice():
     global hot
     hot = not hot
-    print 'Track Info:'
-    print hot
+    print 'Track Info: ', hot
 
 class Music(Frame):
     def __init__(self, parent):
-        Frame.__init__(self, parent, background='#24A9E4')
+        Frame.__init__(self, parent, background = '#24A9E4')
         self.parent = parent
         self.initUI()
 
     def initUI(self):
         self.parent.title('Music Info')
-        continueButton = Button(self, text='Search', command = self.quit)
+        continueButton = Button(self, text = 'Search', command = self.quit)
         continueButton.config(height = 3, width = 10)
         continueButton.place(x = 240, y = 60)
         artistLabel = Label(self, text = 'Artist Options', bg = 'red')
@@ -167,7 +163,7 @@ class Music(Frame):
         hotButton = Button(self, text = 'Hotness?', command = hotChoice)
         hotButton.config(height = 3, width = 10)
         hotButton.place(x = 120, y = 90)
-        self.pack(fill=BOTH, expand=1)
+        self.pack(fill = BOTH, expand = 1)
 
 if  __name__ == '__main__':
     import sys
